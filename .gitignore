@@ -1,0 +1,13 @@
+.DS_Store
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Large or third-party files are kept out of the repository
+ProjectA/data/raw/
+ProjectA/data/interim/
+ProjectA/refs/
+*.gpkg
+*.gpkg-journal
+_to_delete/
+*.pdf
