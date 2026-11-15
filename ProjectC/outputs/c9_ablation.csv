@@ -1,0 +1,4 @@
+factor_set,cv_r2,cv_spearman
+Terrain only,-0.257,0.038
+Terrain + drainage,0.248,0.538
+Terrain + drainage + population,0.249,0.548

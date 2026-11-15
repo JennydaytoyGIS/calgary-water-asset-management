@@ -11,3 +11,8 @@ ProjectA/refs/
 *.gpkg-journal
 _to_delete/
 *.pdf
+ProjectC/data/raw/
+ProjectC/data/clean/
+ProjectC/outputs/agol/
+ProjectC/outputs/*.tif
+ProjectC/outputs/check_*.png
