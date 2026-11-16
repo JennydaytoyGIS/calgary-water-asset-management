@@ -35,4 +35,11 @@
   - 社区弹窗的投诉密度改用 Arcade 取一位小数。
   - 社区分级图在比例尺大于 1:60,000 时隐藏，避免压住低洼区。
   - 优先级图的顺序（高、中、低）通过按最小蓄水量降序排序实现；数值轴最小值设为 0，并关闭 buffer。
+- C13 改版：Dashboard 换成 Experience Builder 应用（ProjectC Ponding Screening App）。原因：Stantec 的 JD 把 Experience Builder 列为加分项；Project B 已经是 Dashboard，两个作品不能长得一样。
+  - 配色参考 Stantec 给 Auckland Council 做的 Flood Viewer：浅色底图，洼地用深蓝；我们用蓝色系，颜色越深越优先，只有“最低点 40 m 内没有雨水口”用琥珀色。
+  - 第一页“Ottewell low points”：左侧放关键数字、三个筛选（先查、没有雨水口、接触建筑）和图例；中间是地图；右侧是选中低洼区的详情；下方是检查清单。选中清单里的一行会自动缩放到它，清单可以导出 CSV。
+  - 第二页“Citywide 311 reports”：社区按“实际投诉比模型预期多还是少”着色（青色到珊瑚色）；右侧是选中社区的预期值、实际值和主要因素；下方表格可以按差值排序。
+  - 修正：Ottewell 网页地图的初始范围算错了（偏北），已改正；弹窗里的深度保留两位小数；中优先级的边线改浅，避免看起来像高优先级；全市地图去掉 Ottewell 边界层，让详情面板只显示社区；地图自身的弹窗关掉，只用详情面板。
+  - 发现：按差值排序时，排在前面的是投诉很少的新社区（例如 4 条投诉、预期 0.3），因为差值是对数尺度。已写进 README 的局限。
+  - 截图：docs/img/c13_app_ottewell_overview.jpg、c13_app_ottewell_selected.jpg、c13_app_citywide.jpg。
 

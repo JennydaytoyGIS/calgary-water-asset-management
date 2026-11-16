@@ -37,12 +37,14 @@
 ## Products for different users
 | User | Product |
 |---|---|
-| Drainage planners | ArcGIS Online web map and dashboard ("ProjectC Ponding Screening"): bluespots by priority with "what to check" pop-ups (Arcade), the catch basins and pipes around them, and neighbourhood report rates with the model estimate and top factors for each neighbourhood. Built by `scripts/c13_agol_build.py` |
+| Drainage planners | Experience Builder app "ProjectC Ponding Screening App" with two pages. **Ottewell low points:** filters (check first, no catch basin within 40 m, buildings touching), bluespots by priority, a detail panel that says what to check (Arcade), the catch basins and sewers around each one, and an inspection checklist that zooms the map to the selected row and exports to CSV for work orders. **Citywide 311 reports:** neighbourhoods coloured by how far reports differ from the model, the top factors for each one, and a sortable table. Web maps built by `scripts/c13_agol_build.py`; app layout in Experience Builder |
 | Engineers | `cad/ottewell_bluespots.dxf`: bluespots by priority, nearby catch basins (blocks with IDs) and pipes; read-back check in `cad/` |
 | Managers | A3 map (`outputs/maps/ottewell_bluespots_A3.pdf`) and the findings above |
 | Data team | Step 0 data readiness: download, standardization and QA of the open drainage network (`docs/qa_report_2026-11-14.md`) |
 
-![Dashboard](docs/img/c13_dashboard_overview.jpg)
+![App, Ottewell page](docs/img/c13_app_ottewell_selected.jpg)
+
+![App, citywide page](docs/img/c13_app_citywide.jpg)
 
 ## Workflow
 ```mermaid
@@ -64,6 +66,7 @@ flowchart LR
 - Bluespots assume the sewers are full; there is no pipe capacity or diameter in the open data, so this is a screening, not a hydraulic model. Contours are from 2019, and culverts are missing from the surface.
 - 311 locations are released only by neighbourhood, so the model works at that scale (modifiable areal unit problem). Reports cover roads and sidewalks only; basement flooding is handled by EPCOR and is not in the data.
 - Reports are normalized by area; street length would be a better exposure and probably explains part of the catch basin effect.
+- The model gap is on a log scale, so neighbourhoods with only a few reports can show large gaps (for example, 4 reports against an expected 0.3 per km²). Read the gap together with the report count.
 - Rainfall is not varied across the city.
 - Building footprints are the City's 2017 roof-lines, used only to count buildings touching each bluespot.
 
